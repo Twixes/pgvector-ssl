@@ -71,9 +71,9 @@ PG_MAJOR ?= 17
 .PHONY: docker
 
 docker:
-	docker build --pull --no-cache --build-arg PG_MAJOR=$(PG_MAJOR) -t pgvector/pgvector:pg$(PG_MAJOR) -t pgvector/pgvector:$(EXTVERSION)-pg$(PG_MAJOR) .
+	docker build --pull --no-cache --build-arg PG_MAJOR=$(PG_MAJOR) -t twixes/pgvector-ssl:pg$(PG_MAJOR) -t twixes/pgvector-ssl:$(EXTVERSION)-pg$(PG_MAJOR) .
 
 .PHONY: docker-release
 
 docker-release:
-	docker buildx build --push --pull --no-cache --platform linux/amd64,linux/arm64 --build-arg PG_MAJOR=$(PG_MAJOR) -t pgvector/pgvector:pg$(PG_MAJOR) -t pgvector/pgvector:$(EXTVERSION)-pg$(PG_MAJOR) .
+	docker buildx build --push --pull --no-cache --platform linux/amd64,linux/arm64 --build-arg PG_MAJOR=$(PG_MAJOR) -t twixes/pgvector-ssl:pg$(PG_MAJOR) -t twixes/pgvector-ssl:$(EXTVERSION)-pg$(PG_MAJOR) .
